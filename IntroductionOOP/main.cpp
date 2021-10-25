@@ -1,4 +1,4 @@
-#include<iostream>
+п»ї#include<iostream>
 using namespace std; 
 
 //double distance(Point A, Point B);
@@ -62,11 +62,11 @@ public:
 	{
 		/*double x_distance = other.x - this->x;
 		double y_distance = other.y - this->y;
-		double distance = sqrt(x_distance * x_distance + y_distance * y_distance); ВАРИАНТ РЕШЕНИЯ ЗАДАЧИ №1
+		double distance = sqrt(x_distance * x_distance + y_distance * y_distance); Р’РђР РРђРќРў Р Р•РЁР•РќРРЇ Р—РђР”РђР§Р в„–1
 		return distance;*/
 
 
-		return sqrt(pow(this->x - other.x, 2) + pow(this->y - other.y, 2));		//ВАРИАНТ РЕШЕНИЯ ЗАДАЧИ №2
+		return sqrt(pow(this->x - other.x, 2) + pow(this->y - other.y, 2));		//Р’РђР РРђРќРў Р Р•РЁР•РќРРЇ Р—РђР”РђР§Р в„–2
 	}
 	void print()const
 	{
@@ -93,11 +93,11 @@ void main()
 {
 	setlocale(LC_ALL, "ru");
 #ifdef STRUCT_POINT
-	int a;				//объявление переменной 'a' типа 'int'
-	Point A;			//Объявление переменной 'A' типа 'Point'
-						//Объявлнеие экземпляра 'A' структуры 'Point'
-						//Объявление объекта 'A' структуры 'Point'
-						//Создание объекта 'A' структуры 'Point'
+	int a;				//РѕР±СЉСЏРІР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ 'a' С‚РёРїР° 'int'
+	Point A;			//РћР±СЉСЏРІР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ 'A' С‚РёРїР° 'Point'
+						//РћР±СЉСЏРІР»РЅРµРёРµ СЌРєР·РµРјРїР»СЏСЂР° 'A' СЃС‚СЂСѓРєС‚СѓСЂС‹ 'Point'
+						//РћР±СЉСЏРІР»РµРЅРёРµ РѕР±СЉРµРєС‚Р° 'A' СЃС‚СЂСѓРєС‚СѓСЂС‹ 'Point'
+						//РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° 'A' СЃС‚СЂСѓРєС‚СѓСЂС‹ 'Point'
 	A.getx = 2;
 	A.y = 3;
 	cout << A.x << '\t' << A.y << endl;
@@ -118,13 +118,13 @@ void main()
 	B.sety(4);
 	cout << B.getx() << '\t' << B.gety() << endl;
 
-	cout << "Расстояние от точки A до точки B: " << A.distance(B) << endl;
-	cout << "Расстояние от точки B до точки A: " << B.distance(A) << endl;
+	cout << "Р Р°СЃСЃС‚РѕСЏРЅРёРµ РѕС‚ С‚РѕС‡РєРё A РґРѕ С‚РѕС‡РєРё B: " << A.distance(B) << endl;
+	cout << "Р Р°СЃСЃС‚РѕСЏРЅРёРµ РѕС‚ С‚РѕС‡РєРё B РґРѕ С‚РѕС‡РєРё A: " << B.distance(A) << endl;
 
-	cout << "Расстояние от точки A до точки B: " << A.distance(B) << endl;
-	cout << "Расстояние от точки B до точки A: " << B.distance(A) << endl;
-	cout << "Расстояние между точками A и B: " << distance(A, B);
-	cout << "Расстояние между точками B и A: " << distance(B, A);
+	cout << "Р Р°СЃСЃС‚РѕСЏРЅРёРµ РѕС‚ С‚РѕС‡РєРё A РґРѕ С‚РѕС‡РєРё B: " << A.distance(B) << endl;
+	cout << "Р Р°СЃСЃС‚РѕСЏРЅРёРµ РѕС‚ С‚РѕС‡РєРё B РґРѕ С‚РѕС‡РєРё A: " << B.distance(A) << endl;
+	cout << "Р Р°СЃСЃС‚РѕСЏРЅРёРµ РјРµР¶РґСѓ С‚РѕС‡РєР°РјРё A Рё B: " << distance(A, B);
+	cout << "Р Р°СЃСЃС‚РѕСЏРЅРёРµ РјРµР¶РґСѓ С‚РѕС‡РєР°РјРё B Рё A: " << distance(B, A);
 #endif // DISTANCE
 
 	Point A;  //Default constructor
@@ -136,6 +136,6 @@ void main()
 	C.print();
 
 	Point D;
-	D = B; //CopyAssignment - оператор присваивания
+	D = B; //CopyAssignment - РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 	D.print();
 }
