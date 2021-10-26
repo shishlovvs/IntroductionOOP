@@ -1,10 +1,11 @@
 ﻿#include<iostream>
-using namespace std; 
+using namespace std;
 
 //double distance(Point A, Point B);
+double distance(class Point A, class Point B);
 
 class Point
-{  
+{
 	double x;
 	double y;
 public:
@@ -72,22 +73,14 @@ public:
 	{
 		cout << "X = " << x << '\t' << "Y = " << y << endl;
 	}
-	
+
 };
 
 
-double distance(Point A, Point B)
-{
-	double x_distance = A.getx() - B.getx();
-	double y_distance = A.gety() - B.gety();
-	double distance = sqrt(x_distance * x_distance + y_distance * y_distance);
-	return distance;
-
-	/*return sqrt(pow(this->x - other.x, 2) + pow(this->y - other.y, 2));*/
-}
 
 //#define STRUCT_POINT
-//#define DISTANCE
+#define DISTANCE
+//#define CLASS_POINT
 
 void main()
 {
@@ -118,18 +111,19 @@ void main()
 	B.sety(4);
 	cout << B.getx() << '\t' << B.gety() << endl;
 
-	cout << "Расстояние от точки A до точки B: " << A.distance(B) << endl;
-	cout << "Расстояние от точки B до точки A: " << B.distance(A) << endl;
+	cout << "Расстояние от точки A до точки B: " << A.distance(B) << endl << endl;
+	cout << "Расстояние от точки B до точки A: " << B.distance(A) << endl << endl;
 
-	cout << "Расстояние от точки A до точки B: " << A.distance(B) << endl;
-	cout << "Расстояние от точки B до точки A: " << B.distance(A) << endl;
-	cout << "Расстояние между точками A и B: " << distance(A, B);
-	cout << "Расстояние между точками B и A: " << distance(B, A);
+	cout << "Расстояние от точки A до точки B: " << A.distance(B) << endl << endl;
+	cout << "Расстояние от точки B до точки A: " << B.distance(A) << endl << endl;
+	cout << "Расстояние между точками A и B: " << distance(A, B) << endl << endl;
+	cout << "Расстояние между точками B и A: " << distance(B, A) << endl << endl;
 #endif // DISTANCE
+#ifdef CLASS_POINT
 
 	Point A;  //Default constructor
-	A.print(); 
-	Point B(2,3);
+	A.print();
+	Point B(2, 3);
 	B.print();
 
 	Point C = B;//CopyConstructor
@@ -138,4 +132,16 @@ void main()
 	Point D;
 	D = B; //CopyAssignment - оператор присваивания
 	D.print();
+#endif // CLASS_POINT
+
+}
+
+double distance(Point A, Point B)
+{
+	double x_distance = A.getx() - B.getx();
+	double y_distance = A.gety() - B.gety();
+	double distance = sqrt(x_distance * x_distance + y_distance * y_distance);
+	return distance;
+
+	/*return sqrt(pow(this->x - other.x, 2) + pow(this->y - other.y, 2));*/
 }
