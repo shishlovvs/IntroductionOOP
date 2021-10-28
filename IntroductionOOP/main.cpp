@@ -1,8 +1,9 @@
 ﻿#include<iostream>
 using namespace std;
 
+class Point;
 //double distance(Point A, Point B);
-double distance(class Point A, class Point B);
+double distance(const Point& A, const Point& B);
 
 class Point
 {
@@ -50,16 +51,17 @@ public:
 	{
 		cout << "Destructor:\t\t" << this << endl;
 	}
-	void operator=(const Point& other)
+	Point& operator=(const Point& other)
 	{
 		this->x = other.x;
 		this->y = other.y;
 		cout << "CopyAssignmetn:\t\t" << this << endl;
+		return *this;
 	}
 
 
 	//					methods
-	double distance(Point other)
+	double distance(const Point& other)
 	{
 		/*double x_distance = other.x - this->x;
 		double y_distance = other.y - this->y;
@@ -77,10 +79,13 @@ public:
 };
 
 
-
+#define delimiter "\n------------------------------------------\n"
 //#define STRUCT_POINT
-#define DISTANCE
+//#define DISTANCE
 //#define CLASS_POINT
+//#define ASSIGNMENT_CHECK
+
+
 
 void main()
 {
@@ -112,12 +117,17 @@ void main()
 	cout << B.getx() << '\t' << B.gety() << endl;
 
 	cout << "Расстояние от точки A до точки B: " << A.distance(B) << endl << endl;
+	cout << delimiter << endl;
 	cout << "Расстояние от точки B до точки A: " << B.distance(A) << endl << endl;
-
+	cout << delimiter << endl;
 	cout << "Расстояние от точки A до точки B: " << A.distance(B) << endl << endl;
+	cout << delimiter << endl;
 	cout << "Расстояние от точки B до точки A: " << B.distance(A) << endl << endl;
+	cout << delimiter << endl;
 	cout << "Расстояние между точками A и B: " << distance(A, B) << endl << endl;
+	cout << delimiter << endl;
 	cout << "Расстояние между точками B и A: " << distance(B, A) << endl << endl;
+	cout << delimiter << endl;
 #endif // DISTANCE
 #ifdef CLASS_POINT
 
@@ -134,9 +144,32 @@ void main()
 	D.print();
 #endif // CLASS_POINT
 
+#ifdef ASSIGNMENT_CHECK
+
+	int a, b, c;
+	a = b = c = 0;
+	cout << a << '\t' << b << '\t' << c << '\t' << endl;
+
+	Point A, B, C;
+	cout << delimiter << endl;
+	A = B = C = Point(2, 3); //Point(2,3) - явный вызов конструктора.
+	//Таким образом создается временный безымянный объект,
+	//который существует только в пределах выражения,
+	//и удаляется после завершения выражения.
+	cout << delimiter << endl;
+	A.print();
+	cout << delimiter << endl;
+	B.print();
+	cout << delimiter << endl;
+	C.print();
+#endif
+
+	Point A(2, 3);
+	Point B(4,5);
+	//Point C = A + B;
 }
 
-double distance(Point A, Point B)
+double distance(const Point& A, const Point& B)
 {
 	double x_distance = A.getx() - B.getx();
 	double y_distance = A.gety() - B.gety();
